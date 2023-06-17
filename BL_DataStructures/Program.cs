@@ -26,6 +26,9 @@
                     customLinkedList.AddLast(70);
                     customLinkedList.InsertAfter(56, 30);
                     customLinkedList.Display();
+                    int poppedData = customLinkedList.Pop();
+                    Console.WriteLine("Popped Data: " + poppedData);
+                    customLinkedList.Display();
                     break;
             }
         }

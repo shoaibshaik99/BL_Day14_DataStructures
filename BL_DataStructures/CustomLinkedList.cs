@@ -59,6 +59,18 @@
             }
         }
 
+        public int Pop()
+        {
+            if (head == null)
+            {
+                Console.WriteLine("LinkedList is empty, can't pop from a LinkedList ");
+            }
+            int data = head.data;
+            head = head.next;
+            Console.WriteLine("{0} is popped from CustomLinkedList", data);
+            return data;
+        }
+
 
         //Display the data in linkedlist
         public void Display()
