@@ -63,10 +63,36 @@
         {
             if (head == null)
             {
-                Console.WriteLine("LinkedList is empty, can't pop from a LinkedList ");
+                throw new InvalidOperationException("Cannot pop from an empty list");
             }
             int data = head.data;
             head = head.next;
+            Console.WriteLine("{0} is popped from CustomLinkedList", data);
+            return data;
+        }
+
+        public int PopLast()
+        {
+            if (head == null)
+            {
+                throw new InvalidOperationException("Cannot pop from an empty list");
+            }
+            Node currentNode = head;
+            Node previousNode = null;
+            while (currentNode.next != null)
+            {
+                previousNode = currentNode;
+                currentNode = currentNode.next;
+            }
+            int data = currentNode.data;
+            if (previousNode != null)
+            {
+                previousNode.next = null;
+            }
+            else
+            {
+                head = null;
+            }
             Console.WriteLine("{0} is popped from CustomLinkedList", data);
             return data;
         }
