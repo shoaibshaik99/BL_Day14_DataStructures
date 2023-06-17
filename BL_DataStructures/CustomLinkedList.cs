@@ -1,11 +1,10 @@
-﻿using System.Xml.Linq;
-
-namespace BL_DataStructures
+﻿namespace BL_DataStructures
 {
     internal class CustomLinkedList
     {
         public Node head;
 
+        // Method to add a new node with data to the end of the list
         public void AddLast(int data)
         {
             Node newNode = new Node(data);
@@ -22,6 +21,7 @@ namespace BL_DataStructures
             }
         }
 
+        // Method to append a new node with data to the end of the list
         public void Append(int data)
         {
             Node newNode = new Node(data);
@@ -38,7 +38,42 @@ namespace BL_DataStructures
             }
         }
 
+        // Method to insert a new node with newData after a specified node with data
+        public void InsertAfter(int data, int newData)
+        {
+            Node newNode = new Node(newData);
+            Node currentNode = head;
+            while (currentNode != null && currentNode.data != data)
+            {
+                currentNode = currentNode.next;
+            }
+            if (currentNode != null)
+            {
+                newNode.next = currentNode.next;
+                currentNode.next = newNode;
+                Console.WriteLine("{0} is inserted into CustomLinkedList after {1}", newData, data);
+            }
+            else
+            {
+                Console.WriteLine("No node with data {0} found in CustomLinkedList", data);
+            }
+        }
 
+
+        //Display the data in linkedlist
+        public void Display()
+        {
+            Node currentNode = head;
+            while (currentNode != null)
+            {
+                Console.Write(currentNode.data + " -> ");
+                currentNode = currentNode.next;
+            }
+            Console.WriteLine("null");
+        }
+
+
+        // Method to get the last node in the list
         private Node GetLastNode()
         {
             Node temp = head;
