@@ -9,9 +9,10 @@
             while (!exit)
             {
                 Console.WriteLine("Choose an option:");
-                Console.WriteLine("1. AddLast\n2. Append\n3. InsertAfter\n4. Pop\n5. PopLast\n6. Display\n7. Exit");
+                Console.WriteLine("1. AddLast\n2. Append\n3. InsertAfter\n4. Pop\n5. PopLast\n6. Display\n7. Find\n8. Exit");
                 int option = Convert.ToInt32(Console.ReadLine());
                 int data, newData;
+                Node result;
                 switch (option)
                 {
                     case 1:
@@ -57,6 +58,19 @@
                         customLinkedList.Display();
                         break;
                     case 7:
+                        Console.WriteLine("Enter data of the node to find:");
+                        data = Convert.ToInt32(Console.ReadLine());
+                        result = customLinkedList.Find(data);
+                        if (result != null)
+                        {
+                            Console.WriteLine("Node with data {0} found in CustomLinkedList", result.data);
+                        }
+                        else
+                        {
+                            Console.WriteLine("No node with data {0} found in CustomLinkedList", data);
+                        }
+                        break;
+                    case 8:
                         exit = true;
                         break;
                     default:

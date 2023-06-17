@@ -1,6 +1,6 @@
 ﻿namespace BL_DataStructures
 {
-    internal class CustomLinkedList
+    public class CustomLinkedList
     {
         public Node head;
 
@@ -11,13 +11,13 @@
             if (head == null)
             {
                 head = newNode;
-                Console.WriteLine("{0} is addded into CustomLinkedList", data);
+                Console.WriteLine("{0} is added into CustomLinkedList", data);
             }
             else
             {
                 Node lastNode = GetLastNode();
                 lastNode.next = newNode;
-                Console.WriteLine("{0} is addded into CustomLinkedList", data);
+                Console.WriteLine("{0} is added into CustomLinkedList", data);
             }
         }
 
@@ -59,6 +59,7 @@
             }
         }
 
+        // Method to remove the head node from the list and return its data
         public int Pop()
         {
             if (head == null)
@@ -71,6 +72,7 @@
             return data;
         }
 
+        // Method to remove the last node from the list and return its data
         public int PopLast()
         {
             if (head == null)
@@ -97,19 +99,20 @@
             return data;
         }
 
-
-        //Display the data in linkedlist
-        public void Display()
+        // Method to search for a node with the specified data and return it
+        public Node Find(int data)
         {
             Node currentNode = head;
             while (currentNode != null)
             {
-                Console.Write(currentNode.data + " -> ");
+                if (currentNode.data == data)
+                {
+                    return currentNode;
+                }
                 currentNode = currentNode.next;
             }
-            Console.WriteLine("null");
+            return null;
         }
-
 
         // Method to get the last node in the list
         private Node GetLastNode()
@@ -120,6 +123,18 @@
                 temp = temp.next;
             }
             return temp;
+        }
+
+        // Method to display the linked list
+        public void Display()
+        {
+            Node currentNode = head;
+            while (currentNode != null)
+            {
+                Console.Write(currentNode.data + " -> ");
+                currentNode = currentNode.next;
+            }
+            Console.WriteLine("null");
         }
     }
 }
