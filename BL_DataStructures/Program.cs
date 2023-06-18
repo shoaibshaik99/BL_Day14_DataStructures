@@ -1,6 +1,8 @@
-﻿namespace BL_DataStructures
+﻿using Microsoft.VisualBasic.FileIO;
+
+namespace BL_DataStructures
 {
-    internal class Program
+    internal class Program  
     {
         static void Main(string[] args)
         {
@@ -9,8 +11,8 @@
             while (!exit)
             {
                 Console.WriteLine("\nChoose an option:");
-                Console.WriteLine("1. Add Last\n2. Append\n3. Insert After\n4. Pop\n5. Pop Last\n6. Display\n7. Find\n" +
-                    "8. Add in between \n9. Exit");
+                Console.WriteLine("01. Add Last\n02. Append\n03. Insert After\n04. Pop\n05. Pop last\n06. Display\n07. Find\n" +
+                    "08. Add in between\n09. Delete a node\n10. Display size\n11. Exit");
                 int option = Convert.ToInt32(Console.ReadLine());
                 int data, newData;
                 Node result;
@@ -34,26 +36,16 @@
                         customLinkedList.InsertAfter(data, newData);
                         break;
                     case 4:
-                        try
-                        {
-                            data = customLinkedList.Pop();
-                            Console.WriteLine("{0} was removed from the head of the list", data);
-                        }
-                        catch (InvalidOperationException e)
-                        {
-                            Console.WriteLine(e.Message);
-                        }
+                        if (customLinkedList.head == null)
+                            Console.WriteLine("Cannot pop from an empty list");
+                        else
+                            customLinkedList.Pop();
                         break;
                     case 5:
-                        try
-                        {
-                            data = customLinkedList.PopLast();
-                            Console.WriteLine("{0} was removed from the end of the list", data);
-                        }
-                        catch (InvalidOperationException e)
-                        {
-                            Console.WriteLine(e.Message);
-                        }
+                        if (customLinkedList.head == null)
+                            Console.WriteLine("Cannot pop from an empty list");
+                        else
+                            customLinkedList.PopLast();
                         break;
                     case 6:
                         customLinkedList.Display();
@@ -81,6 +73,15 @@
                         customLinkedList.InsertBetween(firstData, secondData, newData);
                         break;
                     case 9:
+                        Console.WriteLine("Enter the data of node to be deleted.");
+                        data = Convert.ToInt32(Console.ReadLine());
+                        customLinkedList.Delete(data);
+                        break;
+                    case 10:
+                        int size = customLinkedList.Size();
+                        Console.WriteLine("Size of the LinkedList is {0}",size);
+                        break;
+                    case 11:
                         exit = true;
                         break;
                     default:

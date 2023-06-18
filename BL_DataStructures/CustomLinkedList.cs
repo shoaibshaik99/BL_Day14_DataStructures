@@ -59,12 +59,13 @@
             }
         }
 
-        // Method to remove the head node from the list and return its data
-        public int Pop()
+        // Method to remove the head node from the list and return its data, returns null if list is empty.
+        public int? Pop()
         {
             if (head == null)
             {
-                throw new InvalidOperationException("Cannot pop from an empty list");
+                Console.WriteLine("Cannot pop from an empty list");
+                return null;
             }
             int data = head.data;
             head = head.next;
@@ -72,12 +73,14 @@
             return data;
         }
 
-        // Method to remove the last node from the list and return its data
-        public int PopLast()
+
+        // Method to remove the last node from the list and return its data, returns null if list is empty.
+        public int? PopLast()
         {
             if (head == null)
             {
-                throw new InvalidOperationException("Cannot pop from an empty list");
+                Console.WriteLine("Cannot pop from an empty list");
+                return null;
             }
             Node currentNode = head;
             Node previousNode = null;
@@ -99,6 +102,7 @@
             return data;
         }
 
+
         // Method to search for a node with the specified data and return it
         public Node Find(int data)
         {
@@ -114,6 +118,7 @@
             return null;
         }
 
+        //Method to insert a node between the two specified nodes
         public void InsertBetween(int firstData, int secondData, int newData)
         {
             Node newNode = new Node(newData);
@@ -134,6 +139,64 @@
             }
         }
 
+        //Method to delete a node display the size of list after deleting
+        public void Delete(int data)
+        {
+            if (head == null)
+            {
+                Console.WriteLine("Cannot delete from an empty list");
+                return;
+            }
+            if (head.data == data)
+            {
+                head = head.next;
+                Console.WriteLine("{0} is deleted from CustomLinkedList", data);
+                Console.WriteLine("The size of the list is now {0}", Size());
+                return;
+            }
+            Node previousNode = FindPreviousNode(data);
+            if (previousNode != null && previousNode.next != null)
+            {
+                previousNode.next = previousNode.next.next;
+                Console.WriteLine("{0} is deleted from CustomLinkedList", data);
+                Console.WriteLine("The size of the list is now {0}", Size());
+            }
+            else
+            {
+                Console.WriteLine("No node with data {0} found in CustomLinkedList", data);
+            }
+        }
+
+        //Method to search for a previous of a node with specified data and return it
+        private Node FindPreviousNode(int data)
+            {
+                Node currentNode = head;
+                while (currentNode != null)
+                {
+                    if (currentNode.next != null && currentNode.next.data == data)
+                    {
+                        return currentNode;
+                    }
+                    else
+                    {
+                        currentNode = currentNode.next;
+                    }
+                }
+                return null;
+            }
+
+        //Method to return the size if the list
+        public int Size()
+            {
+                int size = 0;
+                Node currentNode = head;
+                while (currentNode != null)
+                {
+                    size++;
+                    currentNode = currentNode.next;
+                }
+                return size;
+            }
 
         // Method to get the last node in the list
         private Node GetLastNode()
