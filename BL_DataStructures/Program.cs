@@ -1,6 +1,4 @@
-﻿using Microsoft.VisualBasic.FileIO;
-
-namespace BL_DataStructures
+﻿namespace BL_DataStructures
 {
     internal class Program  
     {
@@ -12,7 +10,7 @@ namespace BL_DataStructures
             {
                 Console.WriteLine("\nChoose an option:");
                 Console.WriteLine("01. Add Last\n02. Append\n03. Insert After\n04. Pop\n05. Pop last\n06. Display\n07. Find\n" +
-                    "08. Add in between\n09. Delete a node\n10. Display size\n11. Exit");
+                    "08. Add in between\n09. Delete a node\n10. Display size\n11. SortedLinkedList\n12. Exit");
                 int option = Convert.ToInt32(Console.ReadLine());
                 int data, newData;
                 Node result;
@@ -82,6 +80,15 @@ namespace BL_DataStructures
                         Console.WriteLine("Size of the LinkedList is {0}",size);
                         break;
                     case 11:
+                        SortedLinkedList sortedList = new SortedLinkedList();
+                        sortedList.Add(56);
+                        sortedList.Add(30);
+                        sortedList.Add(40);
+                        sortedList.Add(70);
+                        Console.WriteLine("Sorted linked list:");
+                        sortedList.Display();
+                        return;
+                    case 12:
                         exit = true;
                         break;
                     default:

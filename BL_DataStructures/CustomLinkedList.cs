@@ -73,7 +73,6 @@
             return data;
         }
 
-
         // Method to remove the last node from the list and return its data, returns null if list is empty.
         public int? PopLast()
         {
