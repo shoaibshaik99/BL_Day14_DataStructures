@@ -114,6 +114,27 @@
             return null;
         }
 
+        public void InsertBetween(int firstData, int secondData, int newData)
+        {
+            Node newNode = new Node(newData);
+            Node currentNode = head;
+            while (currentNode != null && currentNode.next != null && (currentNode.data != firstData || currentNode.next.data != secondData))
+            {
+                currentNode = currentNode.next;
+            }
+            if (currentNode != null && currentNode.next != null)
+            {
+                newNode.next = currentNode.next;
+                currentNode.next = newNode;
+                Console.WriteLine("{0} is inserted into CustomLinkedList between {1} and {2}", newData, firstData, secondData);
+            }
+            else
+            {
+                Console.WriteLine("No consecutive nodes with data {0} and {1} found in CustomLinkedList", firstData, secondData);
+            }
+        }
+
+
         // Method to get the last node in the list
         private Node GetLastNode()
         {

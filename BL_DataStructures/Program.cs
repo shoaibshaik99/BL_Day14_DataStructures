@@ -8,8 +8,9 @@
             bool exit = false;
             while (!exit)
             {
-                Console.WriteLine("Choose an option:");
-                Console.WriteLine("1. AddLast\n2. Append\n3. InsertAfter\n4. Pop\n5. PopLast\n6. Display\n7. Find\n8. Exit");
+                Console.WriteLine("\nChoose an option:");
+                Console.WriteLine("1. Add Last\n2. Append\n3. Insert After\n4. Pop\n5. Pop Last\n6. Display\n7. Find\n" +
+                    "8. Add in between \n9. Exit");
                 int option = Convert.ToInt32(Console.ReadLine());
                 int data, newData;
                 Node result;
@@ -71,6 +72,15 @@
                         }
                         break;
                     case 8:
+                        Console.WriteLine("Enter data of the first node:");
+                        int firstData = Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine("Enter data of the second node:");
+                        int secondData = Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine("Enter data of the new node:");
+                        newData = Convert.ToInt32(Console.ReadLine());
+                        customLinkedList.InsertBetween(firstData, secondData, newData);
+                        break;
+                    case 9:
                         exit = true;
                         break;
                     default:
