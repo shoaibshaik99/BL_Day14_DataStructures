@@ -1,4 +1,4 @@
-﻿namespace BL_DataStructures
+﻿namespace DataStructures
 {
     public class SortedLinkedList
     {
