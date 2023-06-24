@@ -8,7 +8,7 @@
             while (!exit)
             {
                 Console.WriteLine("Choose a data structure:");
-                Console.WriteLine("1. Custom Linked List\n2. Custom Stack\n3. Exit");
+                Console.WriteLine("1. Custom Linked List\n2. Custom Stack\n3. Custom Queue\n4. Exit");
                 int dataStructureOption = Convert.ToInt32(Console.ReadLine());
                 switch (dataStructureOption)
                 {
@@ -134,6 +134,34 @@
                         }
                         break;
                     case 3:
+                        CustomQueue customQueue = new CustomQueue();
+                        bool exitQueue = false;
+                        while (!exitQueue)
+                        {
+                            Console.WriteLine("\nChoose an option:");
+                            Console.WriteLine("1. Enqueue\n2. Display\n3. Exit");
+                            int queueOption = Convert.ToInt32(Console.ReadLine());
+                            int queueData;
+                            switch (queueOption)
+                            {
+                                case 1:
+                                    Console.WriteLine("Enter data to enqueue into the queue:");
+                                    queueData = Convert.ToInt32(Console.ReadLine());
+                                    customQueue.Enqueue(queueData);
+                                    break;
+                                case 2:
+                                    customQueue.Display();
+                                    break;
+                                case 3:
+                                    exitQueue = true;
+                                    break;
+                                default:
+                                    Console.WriteLine("Invalid option");
+                                    break;
+                            }
+                        }
+                        break;
+                    case 4:
                         exit = true;
                         break;
                     default:

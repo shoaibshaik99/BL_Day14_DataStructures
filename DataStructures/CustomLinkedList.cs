@@ -28,13 +28,11 @@
             if (head == null)
             {
                 head = newNode;
-                Console.WriteLine("{0} is appended into CustomLinkedList", data);
             }
             else
             {
                 Node lastNode = GetLastNode();
                 lastNode.next = newNode;
-                Console.WriteLine("{0} is appended into CustomLinkedList", data);
             }
         }
 
