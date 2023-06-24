@@ -139,7 +139,7 @@
                         while (!exitQueue)
                         {
                             Console.WriteLine("\nChoose an option:");
-                            Console.WriteLine("1. Enqueue\n2. Display\n3. Exit");
+                            Console.WriteLine("1. Enqueue\n2. Display\n3. Dequque \n4. Exit");
                             int queueOption = Convert.ToInt32(Console.ReadLine());
                             int queueData;
                             switch (queueOption)
@@ -153,6 +153,9 @@
                                     customQueue.Display();
                                     break;
                                 case 3:
+                                    customQueue.Dequeue();
+                                    break;
+                                case 4:
                                     exitQueue = true;
                                     break;
                                 default:

@@ -74,7 +74,7 @@
             }
             int data = head.data;
             head = head.next;
-            Console.WriteLine("{0} is popped", data);
+            //Console.WriteLine("{0} is popped", data);
             return data;
         }
 
