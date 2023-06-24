@@ -38,6 +38,13 @@
             }
         }
 
+        public void AddFirst (int data)
+        {
+            Node newNode = new Node(data);
+            newNode.next = head;
+            head = newNode;
+        }
+
         // Method to insert a new node with newData after a specified node with data
         public void InsertAfter(int data, int newData)
         {
