@@ -43,16 +43,10 @@
                                     customLinkedList.InsertAfter(data, newData);
                                     break;
                                 case 4:
-                                    if (customLinkedList.head == null)
-                                        Console.WriteLine("Cannot pop from an empty list");
-                                    else
-                                        customLinkedList.Pop();
+                                    customLinkedList.Pop();
                                     break;
                                 case 5:
-                                    if (customLinkedList.head == null)
-                                        Console.WriteLine("Cannot pop from an empty list");
-                                    else
-                                        customLinkedList.PopLast();
+                                    customLinkedList.PopLast();
                                     break;
                                 case 6:
                                     customLinkedList.Display();
@@ -108,7 +102,7 @@
                         while (!exitStack)
                         {
                             Console.WriteLine("\nChoose an option:");
-                            Console.WriteLine("1. Push\n2. Display\n3. Exit");
+                            Console.WriteLine("1. Push\n2. Display\n3. Peek\n4. Pop\n5. Peek and Pop till Stack is empty \n6. Exit");
                             int stackOption = Convert.ToInt32(Console.ReadLine());
                             int stackData;
                             switch (stackOption)
@@ -122,6 +116,15 @@
                                     customStack.Display();
                                     break;
                                 case 3:
+                                    customStack.Peek();
+                                    break;
+                                case 4:
+                                    customStack.Pop();
+                                    break;
+                                case 5:
+                                    customStack.PeekAndPopTillEmpty();
+                                    break;
+                                case 6:
                                     exitStack = true;
                                     break;
                                 default:

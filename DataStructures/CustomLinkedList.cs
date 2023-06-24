@@ -76,7 +76,7 @@
             }
             int data = head.data;
             head = head.next;
-            Console.WriteLine("{0} is popped from CustomLinkedList", data);
+            Console.WriteLine("{0} is popped", data);
             return data;
         }
 
